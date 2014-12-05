@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 
-<?php
-include_once('Refugee_Membre.class.php');
 
-$nouveau_membre= new Refugee_Membre();
-
-//R�cup�ration des variables de l'utilisateurs
-$lastname=@$_POST['lastname'];
-$surname=@$_POST['surname'];
-$origin_city=@$_POST['origin_city'];
-$marital_status=@$_POST['marital_status'];
-$children=@$_POST['children'];
-$pic=@$_POST['pic'];
-$envoyer_donnees=@$_POST['envoyer_donnees'];
-?>
 
 
 
@@ -40,39 +27,47 @@ $envoyer_donnees=@$_POST['envoyer_donnees'];
           <h1 class="text-center">SignUp</h1>
       </div>
       <div class="modal-body">
+        <?php
+        include_once('Refugee_Membre.class.php');
+
+        $nouveau_membre= new Refugee_Membre();
+
+        //R�cup�ration des variables de l'utilisateurs
+        $lastname=@$_POST['lastname'];
+        $surname=@$_POST['surname'];
+        $origin_city=@$_POST['origin_city'];
+        $envoyer_donnees=@$_POST['envoyer_donnees'];
+        ?>
           <form class="form col-md-12 center-block"
-          action="inscription.php" method="post">
+          action="formulaire_refugee.php" method="post">
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
               placeholder="Lastname" name="lastname" value="<?php echo
               @$lastname; ?>">
-              <?php if ($envoyer_donnees <> "") echo
-              $nouveau_membre->setLastname($lastname); ?>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setLastname($lastname); ?>
             </div>
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
               placeholder="Firstname" name="surname" value="<?php
               echo @$surname; ?>"/>
-              <?php if ($envoyer_donnees <> "") echo
-              $nouveau_membre->setSurname($surname); ?>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setSurname($surname); ?>
             </div>
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
               placeholder="City of Origin" name="origin_city" value="<?php
               echo @$origin_city; ?>"/>
-              <?php if ($envoyer_donnees <> "") echo
-              $nouveau_membre->setOriginCity($origin_city); ?>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setOriginCity($origin_city); ?>
             </div>
             
-            <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setMaritalStatus($marital_status); ?>
+            <?php if ($envoyer_donnees <> "") $nouveau_membre->setMaritalStatus(0); ?>
 
             <div class="form-group">
               <button class="btn btn-primary btn-lg btn-block"
-              type="submit" name="envoyer_donnees" value="Inscription">SignUp</button>
-              <?php if ($envoyer_donnees <> "") {$nouveau_membre->CreationNouveauMembre();} ?>
+              type="submit" name="envoyer_donnees" value="send">SignUp</button>
+              <?php if ($envoyer_donnees <> "") $nouveau_membre->CreationNouveauMembre(); ?>
             </div>
           </form>
       </div>
