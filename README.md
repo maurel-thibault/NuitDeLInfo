@@ -18,6 +18,6 @@
 
 ## Programming languages
 
-Front-end(client-side): HTML5, CSS3 ////
-Back-end(server_side): PHP5 ////
-Framework: Bootstrap
+* Front-end(client-side): HTML5, CSS3
+* Back-end(server_side): PHP5
+* Framework: Bootstrap
