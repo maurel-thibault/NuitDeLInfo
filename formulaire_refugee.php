@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+
+<?php
+include_once('Refugee_Membre.class.php');
+
+$nouveau_membre= new Refugee_Membre();
+
+//R�cup�ration des variables de l'utilisateurs
+$lastname=@$_POST['lastname'];
+$surname=@$_POST['surname'];
+$origin_city=@$_POST['origin_city'];
+$marital_status=@$_POST['marital_status'];
+$children=@$_POST['children'];
+$pic=@$_POST['pic'];
+$envoyer_donnees=@$_POST['envoyer_donnees'];
+?>
+
+
+
 <html lang="en">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
