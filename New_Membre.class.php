@@ -173,7 +173,7 @@ class New_Membre extends Membre
 				
 				$enregistrement = $bdd->prepare('INSERT INTO users (pseudo, pass, email, date_inscription, lastname, surname) VALUES(:pseudo, :pass, :email, NOW(), :lastname, :surname)');
 				$enregistrement->execute(array('pseudo'=>$this->getPseudo(),
-												'pass'=>$this->getMotDePasse(),
+												'pass'=>$this->getPassword(),
 												'email'=>$this->getEmail(),
 												'lastname'=>$this->getLastname(),
 												'surname'=>$this->getSurname()));	
