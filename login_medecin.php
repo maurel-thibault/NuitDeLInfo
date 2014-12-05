@@ -36,7 +36,6 @@
         $nouveau_membre= new Connection();
         if ($envoyer_donnees <> "" && $pseudonyme <> "" && $password <> "")
         {
-          echo "plop";
           $nouveau_membre->member_connection($pseudonyme, $password);
         }
         echo $nouveau_membre->getReturnError();
