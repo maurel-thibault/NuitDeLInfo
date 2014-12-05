@@ -28,13 +28,13 @@
 
 
                             <li>
-                                <a href="formulaire_refugee.php"
+                                <a href="formulaire_medecin.php"
                                   class="btn btn-default btn-lg"><span
                             class="network-name">Register</span></a>
                             </li>
 
                             <li>
-                                <a href="login_refugee.php"
+                                <a href="login_medecin.php"
                                   class="btn btn-default btn-lg"><span
                             class="network-name">Login</span></a>
                             </li>
