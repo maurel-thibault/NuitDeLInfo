@@ -1,5 +1,6 @@
 <?php
 include_once("Membre.class.php");
+
 class New_Membre extends Membre
 {	
 	private $confirm_password;
@@ -17,10 +18,10 @@ class New_Membre extends Membre
 		{
 			try
 			{
-
+				include("config.php");
 				//Vérification si le pseudo existe déjà: on effectue une requete puis on compte les résultats avec "count" après avoir effectué un "fetchAll" puis le reste du code avec le remplacement du pseudo et l'indentation de +1 de la variable $verification
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				$bdd = new PDO('mysql:host=localhost;dbname=nuit_info', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',$pdo_options));
+				$bdd = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',$pdo_options));
 				
 				$recherche_pseudo = $bdd->prepare('SELECT id FROM users WHERE pseudo=:pseudo');
 
@@ -91,11 +92,10 @@ class New_Membre extends Membre
 		{
 			try
 			{
-				
+				include("config.php");
 				//Vérification si le pseudo existe déjà: on effectue une requete puis on compte les résultats avec "count" après avoir effectué un "fetchAll" puis le reste du code avec le remplacement du pseudo et l'indentation de +1 de la variable $verification
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				$bdd = new PDO('mysql:host=localhost;dbname=nuit_info', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',$pdo_options));
-				
+				$bdd = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',$pdo_options));
 				$recherche_email = $bdd->prepare('SELECT id FROM users WHERE email=:email');
 				
 				$recherche_email->execute(array('email'=>$nouveau_email));
@@ -166,10 +166,10 @@ class New_Membre extends Membre
 		{
 			try
 			{
-				
+				include("config.php");
 				//Inscription de l'utilisateur dans la BDD si tous les autres champs ont été vérifié et sont valides puis ont introduit les variables grâce au fonctions PDO qui permette l'affichage de ces variables
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				$bdd = new PDO('mysql:host=localhost;dbname=nuit_info', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',$pdo_options));
+				$bdd = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',$pdo_options));
 				
 				$enregistrement = $bdd->prepare('INSERT INTO users (pseudo, pass, email, date_inscription, lastname, surname) VALUES(:pseudo, :pass, :email, NOW(), :lastname, :surname)');
 				$enregistrement->execute(array('pseudo'=>$this->getPseudo(),
