@@ -39,7 +39,7 @@
         $envoyer_donnees=@$_POST['envoyer_donnees'];
         ?>
           <form class="form col-md-12 center-block"
-          action="formulaire_refugee.php" method="post">
+          action="profile_page_medecin.php" method="post">
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"

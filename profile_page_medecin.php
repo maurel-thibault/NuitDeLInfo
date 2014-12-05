@@ -76,7 +76,8 @@
               <div class="container">
                 <div class="col-md-4">
                 <ul class="nav nav-tabs" id="myTab">
-                  <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+                  <li class="active"><a href="#profile"
+                  data-toggle="tab">NGO</a></li>
                   <li><a href="#messages" data-toggle="tab">Messages</a></li>
                   <li><a href="#settings" data-toggle="tab">Settings</a></li>
                 </ul>
@@ -108,8 +109,11 @@
       </form> 
 			</div><!--/col-span-6-->
      
+     <hr>
+
+
       </div><!--/row-->
-      
+     
       
   	</div><!--/col-span-9-->
 </div>
