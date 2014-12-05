@@ -28,18 +28,24 @@
       </div>
       <div class="modal-body">
         <?php
-        include_once('Refugee_Membre.class.php');
-
-        $nouveau_membre= new Refugee_Membre();
+        include_once('Connection.class.php');
+        $password=@$_POST['password'];
+        $pseudonyme=@$_POST['pseudonyme'];
+        $envoyer_donnees=@$_POST['validation'];
+        
+        $nouveau_membre= new Connection();
+        if ($envoyer_donnees <> "" && $pseudonyme <> "" && $password <> "")
+        {
+          echo "plop";
+          $nouveau_membre->member_connection($pseudonyme, $password);
+        }
+        echo $nouveau_membre->getReturnError();
 
         //R�cup�ration des variables de l'utilisateurs
-        $lastname=@$_POST['lastname'];
-        $surname=@$_POST['surname'];
-        $origin_city=@$_POST['origin_city'];
-        $envoyer_donnees=@$_POST['envoyer_donnees'];
+        
         ?>
           <form class="form col-md-12 center-block"
-          action="profile_page_medecin.php" method="post">
+          action="login_medecin.php" method="post">
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
@@ -52,7 +58,7 @@
             </div>
 
             <div class="form-group">
-              <button class="btn btn-primary btn-lg btn-block"
+              <button class="btn btn-primary btn-lg btn-block" value="send" name="validation"
               type="submit">Login</button>
             </div>
           </form>
