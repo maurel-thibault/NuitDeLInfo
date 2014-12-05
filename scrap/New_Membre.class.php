@@ -176,15 +176,13 @@ class New_Membre extends Membre
 												'pass'=>$this->getMotDePasse(),
 												'email'=>$this->getEmail(),
 												'lastname'=>$this->getLastname(),
-												'surname'=>$this->getSurname()));
-				//$redirection=true;
-				//$this->redirection=$redirection;
-				echo "<font color='#00CC33'>Successfull registration</font><br>";
+												'surname'=>$this->getSurname()));	
 			}
 			catch(Exception $e)
 			{
 				die('Erreur : '.$e->getMessage());
 			}
+			echo "<font color='#00CC33'>Successfull registration</font><br>";
 		}
 	}
 }
