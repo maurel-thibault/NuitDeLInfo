@@ -22,16 +22,58 @@
           <h1 class="text-center">SignUp</h1>
       </div>
       <div class="modal-body">
-          <form class="form col-md-12 center-block">
+          <form class="form col-md-12 center-block"
+          action="inscription.php" method="post">
+
             <div class="form-group">
-              <input type="text" class="form-control input-lg" placeholder="Email">
+              <input type="text" class="form-control input-lg"
+              placeholder="Pseudonyme" name="pseudo" value="<?php echo
+              @$pseudo; ?>">
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setPseudoAvecVerificationBDD($pseudo); ?>
             </div>
+
             <div class="form-group">
-              <input type="password" class="form-control input-lg" placeholder="Password">
+              <input type="password" class="form-control input-lg"
+              placeholder="Password" name="mot_de_passe" value="<?php
+              echo @$mot_de_passe; ?>"/>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setMotDePasseAvecVerification($mot_de_passe); ?>
             </div>
+
             <div class="form-group">
-              <button class="btn btn-primary btn-lg btn-block">SignUp</button>
-              <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
+              <input type="password" class="form-control input-lg"
+              placeholder="Confirm Password" name="confirmation_mot_de_passe" value="<?php
+              echo @$confirmation_mot_de_passe; ?>"/>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setConfirmationMotDePasseAvecVerification($confirmation_mot_de_passe, $mot_de_passe); ?>
+            </div>
+            
+            <div class="form-group">
+              <input type="text" class="form-control input-lg"
+              placeholder="E-Mail" name="email" value="<?php
+              echo @$email; ?>"/>
+              <?php if ($envoyer_donnees <> "") echo
+              $nouveau_membre->setEmailAvecVerificationBDD($email); ?>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control input-lg"
+              placeholder="Lastname" name="lastname" value="<?php
+              echo @$lastname; ?>"/>
+              <?php if ($envoyer_donnees <> "") echo
+              $nouveau_membre->setLastnameCheck($lastname); ?>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control input-lg"
+              placeholder="Firstname" name="surname" value="<?php
+              echo @$surname; ?>"/>
+              <?php if ($envoyer_donnees <> "") echo
+              $nouveau_membre->setSurnameCheck($surname); ?>
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block"
+              type="submit" name="envoyer_donnees">SignUp</button>
+              <?php $nouveau_membre->CreationNouveauMembre(); ?>
             </div>
           </form>
       </div>
