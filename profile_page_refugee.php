@@ -76,7 +76,8 @@
               <div class="container">
                 <div class="col-md-4">
                 <ul class="nav nav-tabs" id="myTab">
-                  <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+                  <li class="active"><a href="#profile"
+                  data-toggle="tab">Profile</a></li>
                   <li><a href="#messages" data-toggle="tab">Messages</a></li>
                   <li><a href="#settings" data-toggle="tab">Settings</a></li>
                 </ul>
@@ -106,10 +107,40 @@
         <input  type="text" name="name"> 
         <input  type="submit" name="submit" value="Search"> 
       </form> 
+
+      <hr>
+
+      <style>
+            #map-canvas {
+            width: 500px;
+          height: 400px;
+        }
+        </style>
+        <script
+        src="https://maps.googleapis.com/maps/api/js"></script>
+        <script>
+              function initialize() {
+                var mapCanvas = document.getElementById('map-canvas');
+                var mapOptions = { 
+                center: new google.maps.LatLng(33.5, 36.2),
+                zoom: 8,
+                mapTypeId:
+                                google.maps.MapTypeId.ROADMAP
+                              }
+                            var map = new google.maps.Map(mapCanvas, mapOptions)
+                          }
+                      google.maps.event.addDomListener(window, 'load',initialize);
+                    </script>
+
+          <div id="map-canvas"></div>
+
 			</div><!--/col-span-6-->
      
+     <hr>
+
+
       </div><!--/row-->
-      
+     
       
   	</div><!--/col-span-9-->
 </div>
