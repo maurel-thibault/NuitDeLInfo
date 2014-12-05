@@ -20,6 +20,6 @@ elseif (isset($_COOKIE['pseudo'],$_COOKIE['pass'],$_COOKIE['connexion_auto']) &&
 }
 else
 {
-	include('login.php');
+	//include('login.php');
 }
 ?>
