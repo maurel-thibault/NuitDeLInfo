@@ -1,0 +1,4 @@
+installing LAMP on ubuntu : http://piratepad.net/8rURLFqB9p
+
+changing root directory of server on ubuntu : 
+sudo vim /etc/apache2/sites-available/000-default.conf 
