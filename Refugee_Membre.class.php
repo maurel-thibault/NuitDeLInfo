@@ -70,5 +70,6 @@ class Refugee_Membre extends Membre
 				die('Erreur : '.$e->getMessage());
 			}
 			echo "<font color='#00CC33'>Successfull registration</font><br>";
+			header('Location: profile_page_refugee.php');
 	}
 }
