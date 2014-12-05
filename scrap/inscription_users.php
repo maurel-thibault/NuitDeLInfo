@@ -1,7 +1,5 @@
 <?php
-include_once('Creation_Membre.class.php');
-//V�rication des diff�rents champs et de leur caract�ristiques (surtout pour l'email) via les fonctions dans le fichier class
-//Chaque champs a une fonction propre avec ses attribut � v�rifier, si tout est valide on affiche un message de confirmation en face de chaque champs sinon un message avec l'erreur � corriger
+include_once('New_Membre.class.php');
 
 $nouveau_membre= new New_Membre();
 
