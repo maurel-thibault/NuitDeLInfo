@@ -35,6 +35,8 @@
         //R�cup�ration des variables de l'utilisateurs
         $lastname=@$_POST['lastname'];
         $surname=@$_POST['surname'];
+        $mot_de_passe=@$_POST['mot_de_passe'];
+        $confirmation_mot_de_passe=@$_POST['confirmation_mot_de_passe'];
         $origin_city=@$_POST['origin_city'];
         $envoyer_donnees=@$_POST['envoyer_donnees'];
         ?>
@@ -53,6 +55,20 @@
               placeholder="Firstname" name="surname" value="<?php
               echo @$surname; ?>"/>
               <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setSurname($surname); ?>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control input-lg"
+              placeholder="Password" name="mot_de_passe" value="<?php
+              echo @$mot_de_passe; ?>"/>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setMotDePasseAvecVerification($mot_de_passe); ?>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control input-lg"
+              placeholder="Confirm Password" name="confirmation_mot_de_passe" value="<?php
+              echo @$confirmation_mot_de_passe; ?>"/>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setConfirmationMotDePasseAvecVerification($confirmation_mot_de_passe, $mot_de_passe); ?>
             </div>
 
             <div class="form-group">
