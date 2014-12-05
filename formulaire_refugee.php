@@ -27,39 +27,10 @@
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
-              placeholder="Pseudonyme" name="pseudo" value="<?php echo
-              @$pseudo; ?>">
-              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setPseudoAvecVerificationBDD($pseudo); ?>
-            </div>
-
-            <div class="form-group">
-              <input type="password" class="form-control input-lg"
-              placeholder="Password" name="mot_de_passe" value="<?php
-              echo @$mot_de_passe; ?>"/>
-              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setMotDePasseAvecVerification($mot_de_passe); ?>
-            </div>
-
-            <div class="form-group">
-              <input type="password" class="form-control input-lg"
-              placeholder="Confirm Password" name="confirmation_mot_de_passe" value="<?php
-              echo @$confirmation_mot_de_passe; ?>"/>
-              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setConfirmationMotDePasseAvecVerification($confirmation_mot_de_passe, $mot_de_passe); ?>
-            </div>
-            
-            <div class="form-group">
-              <input type="text" class="form-control input-lg"
-              placeholder="E-Mail" name="email" value="<?php
-              echo @$email; ?>"/>
+              placeholder="Lastname" name="lastname" value="<?php echo
+              @$lastname; ?>">
               <?php if ($envoyer_donnees <> "") echo
-              $nouveau_membre->setEmailAvecVerificationBDD($email); ?>
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control input-lg"
-              placeholder="Lastname" name="lastname" value="<?php
-              echo @$lastname; ?>"/>
-              <?php if ($envoyer_donnees <> "") echo
-              $nouveau_membre->setLastnameCheck($lastname); ?>
+              $nouveau_membre->setLastname($lastname); ?>
             </div>
 
             <div class="form-group">
@@ -67,13 +38,23 @@
               placeholder="Firstname" name="surname" value="<?php
               echo @$surname; ?>"/>
               <?php if ($envoyer_donnees <> "") echo
-              $nouveau_membre->setSurnameCheck($surname); ?>
+              $nouveau_membre->setSurname($surname); ?>
             </div>
 
             <div class="form-group">
+              <input type="text" class="form-control input-lg"
+              placeholder="City of Origin" name="origin_city" value="<?php
+              echo @$origin_city; ?>"/>
+              <?php if ($envoyer_donnees <> "") echo
+              $nouveau_membre->setOriginCity($origin_city); ?>
+            </div>
+            
+            <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setMaritalStatus($marital_status); ?>
+
+            <div class="form-group">
               <button class="btn btn-primary btn-lg btn-block"
-              type="submit" name="envoyer_donnees">SignUp</button>
-              <?php $nouveau_membre->CreationNouveauMembre(); ?>
+              type="submit" name="envoyer_donnees" value="Inscription">SignUp</button>
+              <?php if ($envoyer_donnees <> "") {$nouveau_membre->CreationNouveauMembre();} ?>
             </div>
           </form>
       </div>
