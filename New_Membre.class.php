@@ -176,13 +176,14 @@ class New_Membre extends Membre
 												'pass'=>$this->getPassword(),
 												'email'=>$this->getEmail(),
 												'lastname'=>$this->getLastname(),
-												'surname'=>$this->getSurname()));	
+												'surname'=>$this->getSurname()));
 			}
 			catch(Exception $e)
 			{
 				die('Erreur : '.$e->getMessage());
 			}
 			echo "<font color='#00CC33'>Successfull registration</font><br>";
+			header('Location: profile_page_medecin.php');
 		}
 	}
 }
