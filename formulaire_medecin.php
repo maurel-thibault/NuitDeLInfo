@@ -22,8 +22,22 @@
           <h1 class="text-center">SignUp</h1>
       </div>
       <div class="modal-body">
+        <?php
+        include_once('New_Membre.class.php');
+
+        $nouveau_membre= new New_Membre();
+
+        //R�cup�ration des variables de l'utilisateurs
+        $pseudo=@$_POST['pseudo'];
+        $mot_de_passe=@$_POST['mot_de_passe'];
+        $confirmation_mot_de_passe=@$_POST['confirmation_mot_de_passe'];
+        $email=@$_POST['email'];
+        $lastname=@$_POST['lastname'];
+        $surname=@$_POST['surname'];
+        $envoyer_donnees=@$_POST['envoyer_donnees'];
+        ?>
           <form class="form col-md-12 center-block"
-          action="inscription.php" method="post">
+          action="formulaire_medecin.php" method="post">
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
@@ -50,29 +64,26 @@
               <input type="text" class="form-control input-lg"
               placeholder="E-Mail" name="email" value="<?php
               echo @$email; ?>"/>
-              <?php if ($envoyer_donnees <> "") echo
-              $nouveau_membre->setEmailAvecVerificationBDD($email); ?>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setEmailAvecVerificationBDD($email); ?>
             </div>
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
               placeholder="Lastname" name="lastname" value="<?php
               echo @$lastname; ?>"/>
-              <?php if ($envoyer_donnees <> "") echo
-              $nouveau_membre->setLastnameCheck($lastname); ?>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setLastnameCheck($lastname); ?>
             </div>
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
               placeholder="Firstname" name="surname" value="<?php
               echo @$surname; ?>"/>
-              <?php if ($envoyer_donnees <> "") echo
-              $nouveau_membre->setSurnameCheck($surname); ?>
+              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setSurnameCheck($surname); ?>
             </div>
 
             <div class="form-group">
               <button class="btn btn-primary btn-lg btn-block"
-              type="submit" name="envoyer_donnees">SignUp</button>
+              type="submit" name="envoyer_donnees" value="send">SignUp</button>
               <?php $nouveau_membre->CreationNouveauMembre(); ?>
             </div>
           </form>
