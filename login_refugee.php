@@ -43,16 +43,12 @@
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
-              placeholder="Lastname" name="lastname" value="<?php echo
-              @$lastname; ?>">
-              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setLastname($lastname); ?>
+              placeholder="Lastname" name="lastname">
             </div>
 
             <div class="form-group">
               <input type="text" class="form-control input-lg"
-              placeholder="Firstname" name="surname" value="<?php
-              echo @$surname; ?>"/>
-              <?php if ($envoyer_donnees <> "") echo $nouveau_membre->setSurname($surname); ?>
+              placeholder="Firstname" name="surname">
             </div>
 
             <div class="form-group">
